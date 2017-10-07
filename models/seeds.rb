@@ -7,6 +7,17 @@ Ticket.delete_all()
 Customer.delete_all()
 Film.delete_all()
 
+film1 = Film.new({"title" => "Jurassic Park", "price" => 50})
+film1.save()
+
+film2 = Film.new({"title" => "Ghostbusters", "price" => 25})
+film2.save()
+
+film3 = Film.new({"title" => "Groundhog Day", "price" => 5})
+film3.save()
+
+film4 = Film.new({"title" => "Nutty Professor", "price" => 100})
+film4.save()
 
 customer1 = Customer.new({"name" => "Michael", "funds" => 5})
 customer1.save()
@@ -23,14 +34,27 @@ customer3.save()
 customer4 = Customer.new({"name" => "John", "funds" => 35})
 customer4.save()
 
-film1 = Film.new({"title" => "Jurassic Park", "price" => 50})
-film1.save()
 
-film2 = Film.new({"title" => "Ghostbusters", "price" => 25})
-film2.save()
+ticket1 = Ticket.new({"customer_id" => customer1.id, "film_id" => film1.id})
+ticket1.save()
 
-film3 = Film.new({"title" => "Groundhog Day", "price" => 5})
-film3.save()
+ticket2 = Ticket.new({"customer_id" => customer2.id, "film_id" => film2.id})
+ticket2.save()
+
+ticket3 = Ticket.new({"customer_id" => customer3.id, "film_id" => film3.id})
+ticket3.save()
+
+ticket4 = Ticket.new({"customer_id" => customer4.id, "film_id" => film4.id})
+ticket4.save()
+
+ticket5 = Ticket.new({"customer_id" => customer2.id, "film_id" => film3.id})
+ticket5.save()
+
+ticket6 = Ticket.new({"customer_id" => customer4.id, "film_id" => film1.id})
+ticket6.save()
+
+
+
 
 
 # film1 = Film.new({"title" => "Event Horizon", "price" => 9})

@@ -4,7 +4,7 @@ require_relative "film"
 
 class Ticket
 
-    attr_accessor :name, :funds
+    attr_accessor :customer_id, :film_id
     attr_reader :id
 
     def initialize(options)
@@ -44,5 +44,10 @@ class Ticket
         SqlRunner.run(sql, "delete_ticket", values)
     end
 
+    def ticket_count_per_customer()
+        sql = "SELECT COUNT (id) FROM tickets WHERE customer_id = $1;"
+        values = [@customer_id]
+        SqlRunner.run(sql, "count_tickets", values)
+    end
 
 end
