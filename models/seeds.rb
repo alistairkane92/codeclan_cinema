@@ -53,6 +53,8 @@ ticket5.save()
 ticket6 = Ticket.new({"customer_id" => customer4.id, "film_id" => film1.id})
 ticket6.save()
 
+customer2.pay_for_tickets
+
 
 
 

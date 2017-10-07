@@ -58,4 +58,22 @@ class Customer
         return results.count
     end
 
+    def pay_for_tickets()
+        sql = "SELECT SUM(price) FROM films INNER JOIN tickets ON tickets.film_id = films.id
+                WHERE customer_id = $1 "
+        values = [@id]
+        total_cost_hash = SqlRunner.run(sql, "pay_for_ticket", values).first
+        amount = total_cost_hash["sum"]
+        @funds -= amount.to_i
+    end
+
+        # puts "The hash looks like #{total_cost_hash}"
+        # amount = total_cost_hash.map{|cost| cost["sum"]}
+
+        # puts "The hash after looks like #{amount}"
+
+
+
+        # puts "The hash after looks like #{amount}"
+
 end
