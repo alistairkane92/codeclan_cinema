@@ -2,6 +2,7 @@ require ("pry-byebug")
 require_relative ("customer")
 require_relative ("film")
 require_relative ("ticket")
+require_relative ("screening")
 
 Ticket.delete_all()
 Customer.delete_all()
@@ -55,6 +56,14 @@ ticket6.save()
 
 customer2.pay_for_tickets
 
+screening1 = Screening.new({"ticket_id" => ticket1.id, "show_time" => "2017-10-12 10:00:00"})
+screening1.save()
+
+screening2 = Screening.new({"ticket_id" => ticket2.id, "show_time" => "2017-10-12 09:30:00"})
+screening2.save()
+
+screening3 = Screening.new({"ticket_id" => ticket3.id, "show_time" => "2017-10-12 18:45:00"})
+screening3.save()
 
 
 
