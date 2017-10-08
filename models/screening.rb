@@ -18,5 +18,8 @@ class Screening
         @id = screenings_hash['id'].to_i
     end
 
-    
+    # def tickets_sold()
+    #     sql = "SELECT MAX(id) FROM screenings WHERE screenings.ticket_id = tickets.id"
+
+
 end
