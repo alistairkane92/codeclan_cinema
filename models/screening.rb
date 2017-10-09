@@ -18,8 +18,11 @@ class Screening
         @id = screenings_hash['id'].to_i
     end
 
-    # def tickets_sold()
-    #     sql = "SELECT MAX(id) FROM screenings WHERE screenings.ticket_id = tickets.id"
-
+    def self.most_tickets_sold()
+        sql = " SELECT COUNT(show_time), show_time  FROM screenings GROUP BY show_time;"
+        values = []
+        most_popular_hash = SqlRunner.run(sql, "most_popular_screening", values).first
+        return most_popular_hash["show_time"]
+    end
 
 end
